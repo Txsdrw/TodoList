@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from './Todolist';
 
-export type FilterType = 'all' | 'completed' | 'active'
+export type FilterType = 'all' | 'completed' | 'active';
 
 function App() {
     let [tasks, setTasks] = useState([
@@ -13,9 +13,8 @@ function App() {
         {id: 5, title: 'GraphQL', isDone: false},
     ]);
     const [filter, setFilter] = useState<FilterType>('all');
-    // Сделать фильтр
 
-    let todoListTasks = tasks
+    let todoListTasks = tasks;
 
     if (filter === 'active') {
         todoListTasks = tasks.filter(item => !item.isDone)
