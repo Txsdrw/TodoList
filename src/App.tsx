@@ -12,27 +12,13 @@ function App() {
         {id: 4, title: 'Rest API', isDone: false},
         {id: 5, title: 'GraphQL', isDone: false},
     ]);
-    const [filter, setFilter] = useState<FilterType>('all');
 
-    let todoListTasks = tasks;
-
-    if (filter === 'active') {
-        todoListTasks = tasks.filter(item => !item.isDone)
-    }
-    if (filter === 'completed') {
-        todoListTasks = tasks.filter(item => item.isDone)
-    }
-
-    const handleFilter = (value: FilterType) => {
-        setFilter(value)
-    }
 
     const handleDelete = (id: number) => setTasks(prevState => prevState.filter(task => task.id !== id))
 
     return (
         <div className="App">
-            <Todolist title="What to learn" tasks={todoListTasks} handleDelete={handleDelete}
-                      handleFilter={handleFilter}
+            <Todolist title="What to learn" tasks={tasks} handleDelete={handleDelete}
             />
         </div>
     );
